@@ -13,7 +13,23 @@ public class BoardService {
     @Resource(name="com.example.demo.board.mapper.BoardMapper")
     BoardMapper boardMapper;
 
-    public List<BoardVO> boardListService() throws Exception{
+    public List<BoardVO> boardListService() throws Exception {
         return boardMapper.boardList();
+    }
+
+    public BoardVO boardDetailService(int iBoard) throws Exception {
+        return boardMapper.boardDetail(iBoard);
+    }
+
+    public int boardInsertService(BoardVO boardVO) throws Exception {
+        return boardMapper.boardInsert(boardVO);
+    }
+
+    public int boardUpdateService(BoardVO boardVO) throws Exception {
+        return boardMapper.boardUpdate(boardVO);
+    }
+
+    public int boardDeleteService(int idBoard) throws Exception {
+        return boardMapper.boardDelete(idBoard);
     }
 }

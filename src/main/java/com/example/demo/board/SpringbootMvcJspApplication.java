@@ -4,19 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication
-//public class SpringbootMvcJspApplication extends SpringBootServletInitializer {
-//
-//	@Override
-//	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//		return application.sources(SpringbootMvcJspApplication.class);
-//	}
-//
-//	public static void main(String[] args) {
-//		SpringApplication.run(SpringbootMvcJspApplication.class, args);
-//	}
-//
-//}
 @SpringBootApplication
 @MapperScan(value={"com.example.demo.board.mapper"})
 public class SpringbootMvcJspApplication {
