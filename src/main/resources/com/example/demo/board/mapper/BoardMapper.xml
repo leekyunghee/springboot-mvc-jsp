@@ -17,11 +17,22 @@
         WHERE IDBOARD = #{idBoard}
     </select>
 
-    <insert id="boardInsert" parameterType="com.example.demo.board.domain.BoardVO">
+    <insert id="boardInsert" parameterType="com.example.demo.board.domain.BoardVO" useGeneratedKeys="true" keyProperty="idBoard">
         INSERT INTO
         BOARD (IDBOARD, SUBJECT, CONTENT, WRITER, DATE)
         VALUES(#{idBoard}, #{subject}, #{content}, #{writer}, now())
     </insert>
+
+    <insert id="fileInsert" parameterType="com.example.demo.board.domain.FileVO">
+        INSERT INTO
+        FILES (FILENO, BOARDNO, FILENAME, FILEORIGINALNAME, FILEURL)
+        VALUES (#{fileNo},#{boardNo}, #{fileName}, #{fileOriginalName}, #{fileUrl})
+    </insert>
+
+    <select id="fileDetail" parameterType="int" resultType="com.example.demo.board.domain.FileVO">
+        SELECT  *  FROM FILES
+        WHERE BOARDNO = #{boardNo}
+    </select>
 
     <update id="boardUpdate" parameterType="com.example.demo.board.domain.BoardVO">
         UPDATE BOARD

@@ -1,6 +1,7 @@
 package com.example.demo.board.service;
 
 import com.example.demo.board.domain.BoardVO;
+import com.example.demo.board.domain.FileVO;
 import com.example.demo.board.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,13 @@ public class BoardService {
 
     public int boardDeleteService(int idBoard) throws Exception {
         return boardMapper.boardDelete(idBoard);
+    }
+
+    public int fileInsertService(FileVO file) throws Exception {
+        return boardMapper.fileInsert(file);
+    }
+
+    public FileVO fileDetailService(int boardNo) throws Exception {
+        return boardMapper.fileDetail(boardNo);
     }
 }

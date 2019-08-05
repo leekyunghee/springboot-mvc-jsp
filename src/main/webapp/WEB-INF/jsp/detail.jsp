@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="layoutTag" tagdir="/WEB-INF/tags"  %>
+<layoutTag:layout>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,13 +32,35 @@
         <p>${detail.date}</p>
       </div>
       <div class="form-group">
+        <label>첨부파일</label>
+        <p><a href="/fileDownload/${files.boardNo}">${files.fileOriginalName}</a></p>
+      </div>
+      <div class="form-group">
         <label>내용</label>
         <p>${detail.content}</p>
       </div>
       <button type="submit" class="btn btn-primary">작성</button>
     </form>
-</div>
 
-<%@ include file="bootstrap.jsp" %>
+    <div class="container">
+        <label for="content">comment</label>
+        <form name="commentInsertForm">
+        <div class="input-group">
+            <input type="hidden" name="idBoard" value="${detail.idBoard}">
+            <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" name="commentInsertButton">등록</button>
+            </span>
+        </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="commentList"></div>
+    </div>
+
+</div>
 </body>
 </html>
+<%@include file="comment.jsp" %>
+</layoutTag:layout>

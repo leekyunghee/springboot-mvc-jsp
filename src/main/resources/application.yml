@@ -9,3 +9,12 @@ spring:
       view:
         prefix: /WEB-INF/jsp/
         suffix: .jsp
+
+
+file:
+  upload:
+    path: /Users/leekyunghee/works/springboot-mvc-jsp/src/main/webapp/WEB-INF/uploadFiles/
+
+logging:
+        level:
+              com.example.demo.board: debug
